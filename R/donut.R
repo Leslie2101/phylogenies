@@ -32,6 +32,7 @@ make_donut_plot <- function(data, group, length, loli_ns, k){
 #' @param group Subgroup column
 #' @param length Length of each subgroup (portion in the donut plot)
 #' @param loli_ns Number of loli sticks in each subgroup
+#' @import dplyr
 #' @return A data has been processed and summarised
 process_func <- function(data, group = group, length = length, loli_ns = loli_ns){
   data %>%
@@ -66,9 +67,11 @@ generate_sequence <- function(a, b, c) {
 #' @param length Length of each subgroup (portion in the donut plot)
 #' @param loli_ns Number of loli sticks in each subgroup
 #' @param k Label text of each group
+#' @import ggplot2
+#' @import tidyr
 #' @return Donut from processed data
 donut_func <- function(df, group = group, length = length, loli_ns = loli_ns, k){
-  df %>% ggplot() +
+  df %>% ggplot2::ggplot() +
     geom_rect(
       aes(xmin = 0, xmax = sum({{length}}), ymin = 0, ymax = 2),
       fill = "grey97", color = "grey97") +
@@ -76,14 +79,12 @@ donut_func <- function(df, group = group, length = length, loli_ns = loli_ns, k)
 
     geom_text(aes(label=paste0("K=", {{k}}), x=(start + end)/2, y = 3), size=3) +
 
-    geom_segment( data = na.omit(df %>% unnest_longer(Sequence)),
+    geom_segment( data = na.omit(df %>% tidyr::unnest_longer(Sequence)),
                   aes(x = Sequence, xend = Sequence, y = 4, yend = 5),
                   linewidth = 1.2, na.rm = T) +
     geom_point(
-      data = na.omit(df %>% unnest_longer(Sequence)),
+      data = na.omit(df %>% tidyr::unnest_longer(Sequence)),
       aes(x = Sequence, size = 1), y = 5, na.rm = T) +
-
-    scale_fill_discrete_qualitative()+
 
     coord_polar() +
     theme_minimal() +
