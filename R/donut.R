@@ -1,8 +1,3 @@
-# Donut + lollipop function
-library(dplyr)
-library(tidyr)
-library(colorspace)
-library(ggplot2)
 
 #' Make donut plot
 #'
