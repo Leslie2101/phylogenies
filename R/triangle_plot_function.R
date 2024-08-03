@@ -5,20 +5,19 @@
 #' (trials are encouraged)
 #' @param data Input dataframe
 #' @param x Group column
-#' @param y_1 Stem height group A
-#' @param y_2 Stem height 1 of group B
-#' @param z_1 Triangle height of group A
-#' @param z_2 Triangle height  of group B
-#' @param t_1 Triangle width of group A
-#' @param t_2 Triangle width of group B
+#' @param y_1 Column represents stem height group A
+#' @param y_2 Column represents stem height 1 of group B
+#' @param z_1 Column represents triangle height of group A
+#' @param z_2 Column represents triangle height  of group B
+#' @param t_1 Column represents triangle width of group A
+#' @param t_2 Column represents triangle width of group B
 #' @return A phylogeny plot for ggplot2
 #' @examples
-#' set.seed(123)
-#' df <- data.frame(x = 1:10,
-#'                  y1 = sample(1:50, 10, replace = TRUE),
-#'                  y2 = sample(1:50, 10, replace = TRUE),
-#'                  z1 = sample(1:50, 10, replace = TRUE),
-#'                  z2 = sample(1:50, 10, replace = TRUE))
+#' df <- data.frame(x = 1:5,
+#'                  y1 = 1:5,
+#'                  y2 = 1:5,
+#'                  z1 = seq(10, 50, length.out=5),
+#'                  z2 = seq(50, 10, length.out=5))
 #' make_half_triangle_plot(df, x = as.factor(x),
 #'                         y_1= y1, y_2= y2,
 #'                         z_1 = z1, z_2 = z2)
@@ -54,7 +53,7 @@ make_half_triangle_plot <- function(data, x = sample_id,
               angle = 90,
               size = 3) +
 
-    geom_text(aes(y = {{y_1}} + {{y_2}} +ifelse({{z_1}}>={{z_2}},{{z_1}}, {{z_2}})/7,
+    geom_text(aes(y = {{y_1}} + {{y_2}} + ifelse({{z_1}}>={{z_2}},{{z_1}}, {{z_2}})/max(c({{z_1}}, {{z_2}})),
                   label = paste0({{z_1}}, "|", {{z_2}})),
               color = "black",
               size = 3,
@@ -82,3 +81,13 @@ make_half_triangle_plot <- function(data, x = sample_id,
 # )
 #
 # make_half_triangle_plot(df, x = as.factor(x), y_1= y1, y_2=y2, z_1 = z1, z_2 = z2)
+
+#
+# df <- data.frame(x = 1:5,
+#                  y1 = 1:5,
+#                  y2 = 1:5,
+#                  z1 = seq(10, 50, length.out=5),
+#                  z2 = seq(50, 10, length.out=5))
+# make_half_triangle_plot(df, x = as.factor(x),
+#                         y_1= y1, y_2= y2,
+#                         z_1 = z1, z_2 = z2)

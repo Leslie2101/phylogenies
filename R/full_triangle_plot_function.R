@@ -4,10 +4,11 @@
 #' can only work on certain number range of the dataframe.
 #' @param data Input dataframe
 #' @param x Group column
-#' @param y_1 Stem height group A
-#' @param y_2 Stem height 1 of group B
-#' @param z_1 Triangle height/width of group A
-#' @param z_2 Triangle height/width  of group B
+#' @param y_1 Column represents stem height group A
+#' @param y_2 Column represents stem height 1 of group B
+#' @param z_1 Column represents triangle height/width of group A
+#' @param z_2 Column represents triangle height/width  of group B
+#' @param show_description Showing detailed numbers on the graph as data description
 #' @return A phylogeny plot for ggplot2
 #' @examples
 #' df <- data.frame(x = 1:10,

@@ -12,7 +12,7 @@ geom_htriangle(
   na.rm = FALSE,
   show.legend = NA,
   inherit.aes = TRUE,
-  right_side = T,
+  right_side = TRUE,
   ...
 )
 }
@@ -49,6 +49,7 @@ with customizable width and height. Coordinates aligns with the \strong{upside-d
 triangles, instead of the center of the shape like geom_point
 }
 \examples{
+library(ggplot2)
 df <- data.frame(x = 1:5, y = 1:5,
                  width = c(0.2, 0.4, 0.6, 0.4, 0.6),
                  height = c(0.2, 0.5, 0.6, 0.5, 0.2))
@@ -56,7 +57,7 @@ p <- ggplot(df) +
        geom_htriangle(aes(x = x, y = y,
                           width = width,
                           height = height),
-                      right_side = T) +
+                      right_side = TRUE) +
   ylim(1, 6) + xlim(1, 5.5)
 
 print(p)

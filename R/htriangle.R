@@ -19,6 +19,7 @@
 #' @param right_side If TRUE (default), the resulting half-triangle will face to the right. Otherwise it will be a left half-triangle.
 #' @return A ggplot2 layer that can be added to a ggplot object.
 #' @examples
+#' library(ggplot2)
 #' df <- data.frame(x = 1:5, y = 1:5,
 #'                  width = c(0.2, 0.4, 0.6, 0.4, 0.6),
 #'                  height = c(0.2, 0.5, 0.6, 0.5, 0.2))
@@ -26,7 +27,7 @@
 #'        geom_htriangle(aes(x = x, y = y,
 #'                           width = width,
 #'                           height = height),
-#'                       right_side = T) +
+#'                       right_side = TRUE) +
 #'   ylim(1, 6) + xlim(1, 5.5)
 #'
 #' print(p)
@@ -34,7 +35,7 @@
 #' @export
 geom_htriangle <- function(mapping = NULL, data = NULL, stat = "identity",
                           position = "identity", na.rm = FALSE, show.legend = NA,
-                          inherit.aes = TRUE, right_side = T,
+                          inherit.aes = TRUE, right_side = TRUE,
                            ...)
 {
   layer(geom = GeomTriangle, mapping = mapping, data = data, stat = stat,
@@ -52,7 +53,7 @@ GeomTriangle <- ggproto("GeomTriangle", Geom,
                         extra_params = c("na.rm", "right_side"),
                         draw_key = draw_key_polygon,
 
-                        draw_panel = function(data, panel_params, coord, right_side = T) {
+                        draw_panel = function(data, panel_params, coord, right_side = TRUE) {
 
 
                           data2 <- data

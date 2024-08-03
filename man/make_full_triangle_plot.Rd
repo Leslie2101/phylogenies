@@ -19,13 +19,15 @@ make_full_triangle_plot(
 
 \item{x}{Group column}
 
-\item{y_1}{Stem height group A}
+\item{y_1}{Column represents stem height group A}
 
-\item{y_2}{Stem height 1 of group B}
+\item{y_2}{Column represents stem height 1 of group B}
 
-\item{z_1}{Triangle height/width of group A}
+\item{z_1}{Column represents triangle height/width of group A}
 
-\item{z_2}{Triangle height/width  of group B}
+\item{z_2}{Column represents triangle height/width  of group B}
+
+\item{show_description}{Showing detailed numbers on the graph as data description}
 }
 \value{
 A phylogeny plot for ggplot2

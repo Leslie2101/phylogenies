@@ -57,7 +57,7 @@ generate_sequence <- function(a, b, c) {
 #' Drawing donut
 #'
 #' Drawing donut plot with lolli sticks given processed data
-#' @param df Input dataframe
+#' @param df Input processed dataframe
 #' @param group Subgroup column
 #' @param length Length of each subgroup (portion in the donut plot)
 #' @param loli_ns Number of loli sticks in each subgroup

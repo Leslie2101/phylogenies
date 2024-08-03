@@ -46,6 +46,7 @@ with customizable width and height. Coordinates aligns with the \strong{upside-d
 triangles, instead of the center of the shape like geom_point.
 }
 \examples{
+library(ggplot2)
 df <- data.frame(x = 1:5, y = 1:5,
                  width = c(0.2, 0.4, 0.6, 0.4, 0.6),
                  height = c(0.2, 0.5, 0.6, 0.5, 0.2))

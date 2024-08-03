@@ -18,6 +18,7 @@
 #' @param inherit.aes If FALSE, overrides the default aesthetics, rather than combining with them. This is most useful for helper functions that define both data and aesthetics and shouldn't inherit behaviour from the default plot specification, e.g. borders.
 #' @return A ggplot2 layer that can be added to a ggplot object.
 #' @examples
+#' library(ggplot2)
 #' df <- data.frame(x = 1:5, y = 1:5,
 #'                  width = c(0.2, 0.4, 0.6, 0.4, 0.6),
 #'                  height = c(0.2, 0.5, 0.6, 0.5, 0.2))

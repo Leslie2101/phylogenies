@@ -20,17 +20,17 @@ make_half_triangle_plot(
 
 \item{x}{Group column}
 
-\item{y_1}{Stem height group A}
+\item{y_1}{Column represents stem height group A}
 
-\item{y_2}{Stem height 1 of group B}
+\item{y_2}{Column represents stem height 1 of group B}
 
-\item{z_1}{Triangle height of group A}
+\item{z_1}{Column represents triangle height of group A}
 
-\item{z_2}{Triangle height  of group B}
+\item{z_2}{Column represents triangle height  of group B}
 
-\item{t_1}{Triangle width of group A}
+\item{t_1}{Column represents triangle width of group A}
 
-\item{t_2}{Triangle width of group B}
+\item{t_2}{Column represents triangle width of group B}
 }
 \value{
 A phylogeny plot for ggplot2
@@ -41,12 +41,11 @@ can only work on certain number range of the dataframe.
 (trials are encouraged)
 }
 \examples{
-set.seed(123)
-df <- data.frame(x = 1:10,
-                 y1 = sample(1:50, 10, replace = TRUE),
-                 y2 = sample(1:50, 10, replace = TRUE),
-                 z1 = sample(1:50, 10, replace = TRUE),
-                 z2 = sample(1:50, 10, replace = TRUE))
+df <- data.frame(x = 1:5,
+                 y1 = 1:5,
+                 y2 = 1:5,
+                 z1 = seq(10, 50, length.out=5),
+                 z2 = seq(50, 10, length.out=5))
 make_half_triangle_plot(df, x = as.factor(x),
                         y_1= y1, y_2= y2,
                         z_1 = z1, z_2 = z2)

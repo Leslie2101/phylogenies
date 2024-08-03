@@ -6,12 +6,12 @@
 #' @return Preprocessed pyclone data
 #' @import dplyr
 summarise_pyclone_data <- function(data){
-  if (length(unique(df$x)) != 1){
+  if (length(unique(data$sample_id)) != 1){
     warning("Warning: The 'sample_id' column does not contain only one unique value.")
   }
 
   if (!("isDriver" %in% colnames(data))){
-    data$isDriver = F
+    data$isDriver = FALSE
     warning(paste("Warning: Column 'isDriver' does not exist in the dataframe. The default value will be False."))
   }
 

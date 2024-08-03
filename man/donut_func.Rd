@@ -7,7 +7,7 @@
 donut_func(df, group = group, length = length, loli_ns = loli_ns, k)
 }
 \arguments{
-\item{df}{Input dataframe}
+\item{df}{Input processed dataframe}
 
 \item{group}{Subgroup column}
 
