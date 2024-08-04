@@ -33,12 +33,25 @@ summarise_pyclone_data <- function(data){
 #' represented by number of lollipops.
 #' @param data Pyclone-vi result + isDriver denoting if the mutation is driver.
 #' @return Donut plot with lollipops to summarize driver-annotated pyclone data
+#' @examples
+#' data <- load_sample_pyclone()
+#' # head(data, 3)
+#' #> mutation_id sample_id cluster_id cellular_prevalence cellular_prevalence_std
+#' #>        MUT1       PM1          0              0.9951                  0.0081
+#' #>        MUT2       PM1          0              0.9951                  0.0081
+#' #>        MUT3       PM1          0              0.9951                  0.0081
+#' #> cluster_assignment_prob isDriver
+#' #>                 1.0000    FALSE
+#' #>                 0.9999     TRUE
+#' #>                 1.0000     TRUE
+#' make_pyclone_donut_plot(data)
 #' @export
 make_pyclone_donut_plot <- function(data){
   mydata <- summarise_pyclone_data(data)
   sample_id = data$sample_id[1]
   make_donut_plot(mydata, group = cluster_id, length = freq, loli_ns = countDriver, k =K) + ggtitle(sample_id)
 }
+
 
 
 

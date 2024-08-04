@@ -2,6 +2,7 @@
 
 export(geom_ftriangle)
 export(geom_htriangle)
+export(load_sample_pyclone)
 export(make_donut_plot)
 export(make_full_triangle_plot)
 export(make_half_triangle_plot)

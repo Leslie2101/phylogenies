@@ -74,14 +74,14 @@ make_full_triangle_plot <- function(data, x = sample_id,
             axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 }
 
-set.seed(123) # For reproducibility
-df <- data.frame(
-  x = 1:10,
-  y1 = sample(1:10, 10, replace = TRUE),
-  y2 = sample(1:10, 10, replace = TRUE),
-  z1 = sample(1:10, 10, replace = TRUE),
-  z2 = sample(1:10, 10, replace = TRUE)
-)
-
-make_full_triangle_plot(df, x = as.factor(x), y_1= y1, y_2=y2, z_1 = z1, z_2 = z2)
+# set.seed(123) # For reproducibility
+# df <- data.frame(
+#   x = 1:10,
+#   y1 = sample(1:10, 10, replace = TRUE),
+#   y2 = sample(1:10, 10, replace = TRUE),
+#   z1 = sample(1:10, 10, replace = TRUE),
+#   z2 = sample(1:10, 10, replace = TRUE)
+# )
+#
+# make_full_triangle_plot(df, x = as.factor(x), y_1= y1, y_2=y2, z_1 = z1, z_2 = z2)
 

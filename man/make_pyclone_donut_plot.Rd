@@ -17,3 +17,16 @@ Summarise pyclone data with clonal sizes which represented by K values,
 number of drivers in each cluster per unique cluster with unique CCF is
 represented by number of lollipops.
 }
+\examples{
+data <- load_sample_pyclone()
+#head(data, 3)
+#> mutation_id sample_id cluster_id cellular_prevalence cellular_prevalence_std
+#>        MUT1       PM1          0              0.9951                  0.0081
+#>        MUT2       PM1          0              0.9951                  0.0081
+#>        MUT3       PM1          0              0.9951                  0.0081
+#>  cluster_assignment_prob isDriver
+#>                   1.0000    FALSE
+#>                   0.9999     TRUE
+#>                   1.0000     TRUE
+make_pyclone_donut_plot(data)
+}
